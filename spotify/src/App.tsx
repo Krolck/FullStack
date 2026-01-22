@@ -71,7 +71,7 @@ function App() {
               // Event listener for when the user types in the input field
               onChange={event => setSearchInput(event.target.value)}
             />
-            <Button onClick = {()=>{console.log('clicked button')}}>
+            <Button onClick = {()=>{search()}}>
               Search
             </Button>
           </InputGroup>
