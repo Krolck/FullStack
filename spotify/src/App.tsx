@@ -6,11 +6,11 @@ import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-boo
 import { useState, useEffect } from 'react';
 
 
+
+
 const CLIENT_ID = "69a55be5790a4014916ef3308513a126";
 const CLIENT_SECRET = "aec2228ec82b49fcbef8de1c9ea1dced";
 
-// Importing the required components from react-bootstrap library
-// useState and useEffect hooks for state management in React
 
 function App() {
   // Setting the initial state for the search input
@@ -50,7 +50,9 @@ function App() {
           .then(data =>{
 
             console.log('Request Data ' + data)
-            return data
+            const artistID = data.artists.items[0].id
+            console.log(artistID)
+            return artistID;
           })         
           console.log(artistID)
         }
