@@ -16,6 +16,7 @@ function App() {
   // Setting the initial state for the search input
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
+  const [albums, setAlbums] = useState("");
 
   useEffect(() =>{
       // API Access Token
@@ -37,7 +38,7 @@ function App() {
         }, [])
         async function search() {
           console.log("Search for " + searchInput)
-          var searchParams = {
+          const searchParams = {
             method: 'GET',
             headers: {
               'Content-Type': 'appllication/json',
@@ -45,16 +46,23 @@ function App() {
 
              }
           } 
-          var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParams)
+          const artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParams)
           .then(response => response.json())
           .then(data =>{
 
             console.log('Request Data ' + data)
             const artistID = data.artists.items[0].id
             console.log(artistID)
-            return artistID;
-          })         
-          console.log(artistID)
+          })        
+
+          const albums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParams)
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              setAlbums(data.items);
+          });
+          console.log(albums)
+
         }
 
   return (
@@ -64,16 +72,14 @@ function App() {
             <FormControl
               placeholder = "Search"
               type = "input"
-              // Event listener for when the user presses the enter key
               onKeyPress = {event => {
                 if (event.key === "Enter"){
                   console.log('pressed enter');
                 }
               }}
-              // Event listener for when the user types in the input field
               onChange={event => setSearchInput(event.target.value)}
             />
-            <Button onClick = {()=>{search()}}>
+            <Button onClick = {search}>
               Search
             </Button>
           </InputGroup>
