@@ -53,6 +53,7 @@ function App() {
             console.log('Request Data ' + data)
             const artistID = data.artists.items[0].id
             console.log(artistID)
+            return artistID
           })        
 
           const albums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParams)
@@ -60,8 +61,10 @@ function App() {
             .then(data => {
               console.log(data);
               setAlbums(data.items);
+            
           });
           console.log(albums)
+          return albums
 
         }
 
@@ -86,6 +89,7 @@ function App() {
         </Container>
         <Container>
           <Row className ="mx-2 row row-cols-4">
+            
                   <Card>
                     <Card.Img src = '#' />
                     <Card.Body>
