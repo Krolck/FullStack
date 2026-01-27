@@ -49,7 +49,6 @@ function App() {
           const artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParams)
           .then(response => response.json())
           .then(data =>{
-
             console.log('Request Data ' + data)
             const artistID = data.artists.items[0].id
             console.log(artistID)
@@ -77,7 +76,7 @@ function App() {
               type = "input"
               onKeyPress = {event => {
                 if (event.key === "Enter"){
-                  console.log('pressed enter');
+                  search()
                 }
               }}
               onChange={event => setSearchInput(event.target.value)}
