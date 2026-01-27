@@ -16,7 +16,7 @@ function App() {
   // Setting the initial state for the search input
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
-  const [albums, setAlbums] = useState("");
+  const [albums, setAlbums] = useState([]);
 
   useEffect(() =>{
       // API Access Token
@@ -73,7 +73,7 @@ function App() {
         <Container>
           <InputGroup className = "mb-3" size = "lg">
             <FormControl
-              placeholder = "Search"
+              placeholder = "Search For Artist"
               type = "input"
               onKeyPress = {event => {
                 if (event.key === "Enter"){
@@ -89,17 +89,18 @@ function App() {
         </Container>
         <Container>
           <Row className ="mx-2 row row-cols-4">
+             {albums.map((album)=>(
+                <Card>
+                  <Card.Img src = {album.images[0].url} />
+                  <Card.Body>
+                    <Card.Title> {album.name} </Card.Title>
+                  </Card.Body>
+              </Card>
             
-                  <Card>
-                    <Card.Img src = '#' />
-                    <Card.Body>
-                      <Card.Title> Album Name Here </Card.Title>
-                    </Card.Body>
-                  </Card>
-            
+             ))}
           </Row>
-          
         </Container>
+
       </div>
     );
   }
