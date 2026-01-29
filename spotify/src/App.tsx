@@ -13,13 +13,11 @@ const CLIENT_SECRET = "aec2228ec82b49fcbef8de1c9ea1dced";
 
 
 function App() {
-  // Setting the initial state for the search input
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
 
   useEffect(() =>{
-      // API Access Token
       var authParameters = {
         method: 'POST',
         headers: {
