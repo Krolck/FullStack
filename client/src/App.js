@@ -1,43 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styling/App.css";
+import "./styling/nav.css";
+import "./styling/footer.css";
+import "./styling/home.css";
+import "./styling/shopping.css";
+import "./styling/about.css";
+import "./styling/account.css";
+import "./styling/contact.css";
+import "./styling/hero.css";
+import "./styling/featured.css";
 
-import axios from "axios"
 
-const port = 3001
+import About from "./pages/about";
+import Account from "./pages/account";
+import Cart from "./pages/cart";
+import Contact from "./pages/contact";
+import Shopping from "./pages/shopping";
+import Home from "./pages/home";
+
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { NavBar } from "./components/index.js";
+import { Footer } from "./components/index.js";
 
 function App() {
-  
-  const [question, updateQuestion] = useState("")
-  const [name, updateName] = useState("")
-
-  function submitQuestion(){
-    axios.post(`http://localhost${port}/api/insert`)
-  }
-
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <title> Leo's Website </title>
-        <label>Welcome To Leo's Website</label> 
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <form>
-          <label for="question">Ask a Question</label>
-          <input type='text' id = "question" name='question' onChange={(event) => {
-            updateQuestion(event.target.value)
-          }}></input>
-          <label for="name">Name</label>
-          <input type='text' id = "name" name='name'onChange={(event) => {
-            updateName(event.target.value)
-          }}></input>
-
-          <button onClick={submitQuestion} type='submit'>Submit</button>
-        </form>
-      </header>
-      <div id='search'>
-          <QuestionSearch/>
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <div className="main">
+          <NavBar />
+          <Footer />
+        </div>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/shopping" element={<Shopping />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

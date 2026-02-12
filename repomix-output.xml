@@ -1,0 +1,1787 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+client/
+  public/
+    index.html
+    manifest.json
+    minifest.json
+  src/
+    components/
+      cart.jsx
+      cartIcon.jsx
+      contactForm.jsx
+      featured.jsx
+      footer.jsx
+      hero.jsx
+      index.js
+      nav.jsx
+      product.jsx
+    images/
+      acct.png
+      cartlogo.jpeg
+      cartlogo.png
+      logo.png
+      productImg.png
+    pages/
+      about.js
+      account.js
+      cart.js
+      contact.js
+      home.js
+      shopping.js
+    styling/
+      about.css
+      account.css
+      App.css
+      contact.css
+      featured.css
+      footer.css
+      hero.css
+      home.css
+      index.css
+      nav.css
+      shopping.css
+      styles.css
+    App.js
+    App.test.js
+    index.js
+    logo.svg
+    serviceWorker.js
+  .env.example
+  .gitignore
+  package.json
+  README.md
+docs/
+  CRA_REFERENCE.md
+server/
+  .env.example
+  .gitignore
+  index.js
+  package.json
+README.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="client/public/index.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#000000">
+	<!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+	<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+	<!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+	<title>React App</title>
+</head>
+
+<body>
+	<noscript>
+		You need to enable JavaScript to run this app.
+	</noscript>
+	<div id="root"></div>
+	<!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+</html>
+</file>
+
+<file path="client/public/manifest.json">
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+</file>
+
+<file path="client/public/minifest.json">
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+</file>
+
+<file path="client/src/components/featured.jsx">
+import React from "react";
+import productImg from '../images/productImg.png';
+
+const Featured = () => {
+  return (
+    <>
+      <div id="gallery-head">
+        <h1> Gallery </h1>
+      </div>
+      <div id="card-container">
+      <div class="featured-card">
+          <img
+            className="img"
+            src={productImg}
+            alt=""
+          />
+          <h3>Add a product here</h3>
+        </div>
+
+        <div class="featured-card">
+          <img
+            className="img"
+            src={productImg}
+            alt=""
+          />
+          <h3>Add a product here</h3>
+        </div>
+
+        <div class="featured-card">
+          <img
+            className="img"
+            src={productImg}
+            alt=""
+          />
+          <h3>Add a product here</h3>
+        </div>
+
+        <div class="featured-card">
+          <img
+            className="img"
+            src={productImg}
+            alt=""
+          />
+          <h3>Add a product here</h3>
+        </div>
+
+        <div class="featured-card">
+          <img
+            className="img"
+            src={productImg}
+            alt=""
+          />
+          <h3>Add a product here</h3>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Featured;
+</file>
+
+<file path="client/src/components/footer.jsx">
+import React from "react";
+
+const Footer = () => {
+  return (
+    <div className="footer">
+      <div id="sct1">
+        <p id="sct1-txt">Connect With Us</p>
+        <ul id="footerlist1">
+          <li>Instagram</li>
+          <li>Twitter</li>
+          <li>Youtube</li>
+        </ul>
+      </div>
+      <div id="sct2">
+        Newsletter
+        <p>Sign up for great deals and offers</p>
+        <div id="newsletter">
+          <input id="input1" placeholder="Enter Email Address"></input>
+          <button id="button1">Sign Up</button>
+        </div>
+      </div>
+      <div id="sct3">
+        <ul id="footerlist2">
+          <li>About</li>
+          <li>FAQ</li>
+          <li>Careers</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default Footer;
+</file>
+
+<file path="client/src/components/hero.jsx">
+import React from "react";
+
+const Hero = () => {
+  return (
+    <>
+      <div id="hero">
+        <h3 id="hero-promo"> Add your website title / heading here! </h3>
+        <p id="hero-text">This is the hero section of your website, where you can grab the user's attention and explain the purpose of your business. Feel free to add a catchy tagline or a brief overview of your services here.</p>
+      </div>
+    </>
+  );
+};
+
+export default Hero;
+</file>
+
+<file path="client/src/components/index.js">
+export { default as NavBar } from "./nav";
+export { default as Footer } from "./footer";
+export { default as Hero } from "./hero";
+</file>
+
+<file path="client/src/components/product.jsx">
+import React from "react";
+
+const Product = (props) => {
+  return (
+    <div id="product">
+      <img src={props.image} alt="" />
+      <h2> {props.name} </h2>
+      <h3> {props.description} </h3>
+      <h3> {props.price} </h3>
+    </div>
+  );
+};
+
+export default Product;
+</file>
+
+<file path="client/src/pages/about.js">
+import React from "react";
+
+const About = () => {
+  return (
+    <>
+      <div id="about">
+        <h1> About Page </h1>
+        <h3> Add information about your business here!</h3>
+      </div>
+    </>
+  );
+};
+
+export default About;
+</file>
+
+<file path="client/src/pages/account.js">
+import React from "react";
+
+const Account = () => {
+  return (
+    <>
+      <div id="account">
+        <h1> Account Page </h1>
+      </div>
+    </>
+  );
+};
+
+export default Account;
+</file>
+
+<file path="client/src/pages/cart.js">
+import React from "react";
+
+const Cart = ({ cart }) => {
+  return <></>;
+};
+
+export default Cart;
+</file>
+
+<file path="client/src/pages/home.js">
+import React from "react";
+import Hero from "../components/hero";
+import Featured from "../components/featured";
+
+const Home = () => {
+  return (
+    <>
+      <div className="main">
+        <div id="home">
+          <div id="hero">
+            <Hero />
+          </div>
+          <Featured />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Home;
+</file>
+
+<file path="client/src/pages/shopping.js">
+import React, { useState } from "react";
+import NavBar from "../components/nav";
+import productImg from "../images/productImg.png";
+
+const PAGE_PRODUCTS = "products";
+const PAGE_CART = "cart";
+
+const Shopping = () => {
+  const [cartList, setCartList] = useState([]);
+  const [page, setPage] = useState(PAGE_PRODUCTS);
+
+  const [products] = useState([
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+    {
+      image: productImg,
+      name: "Product Title",
+      description: "A description of the product",
+      price: "Price"
+    },
+  ]);
+
+  const addToCart = (product) => {
+    setCartList([...cartList, product]);
+  };
+
+  const navigateTo = (nextPage) => {
+    setPage(nextPage);
+  };
+
+  const renderProducts = () => (
+    <>
+      <header id="shopping-head">
+        <button onClick={() => navigateTo(PAGE_CART)} id="goToCart">
+          Go to Cart ({cartList.length})
+        </button>
+      </header>
+      <div id="shopping">
+        {products.map((product, idx) => (
+          <div className="card" key={idx}>
+            <div id="product">
+              <img src={product.image} alt="" />
+              <h2> {product.name} </h2>
+              <h3> {product.description} </h3>
+              <h3> {product.price} </h3>
+              <button onClick={() => addToCart(product)}> Add to Cart </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+
+  const renderCart = () => (
+    <>
+      <div id="cart-container">
+        <button onClick={() => navigateTo(PAGE_PRODUCTS)} id="products-btn">
+          Back to Products
+        </button>
+
+        <h1 id="cart-title"> Cart </h1>
+
+        {cartList.map((product, idx) => (
+          <div className="card card-container" key={idx}>
+            <div id="product">
+              <img src={product.image} alt="" />
+              <h2> {product.name} </h2>
+              <h3> {product.description} </h3>
+              <h3> {product.price} </h3>
+            </div>
+          </div>
+        ))}
+        <button id="checkout-btn">Checkout</button>
+      </div>
+    </>
+  );
+
+  return (
+    <div className="main">
+      {renderProducts()}
+      {page === PAGE_CART && renderCart()}
+      <NavBar length={cartList.length} />
+    </div>
+  );
+};
+
+export default Shopping;
+</file>
+
+<file path="client/src/styling/about.css">
+#about {
+  position: absolute;
+  top: 50px;
+  margin-top: 30px;
+}
+</file>
+
+<file path="client/src/styling/account.css">
+#account {
+  position: absolute;
+  top: 40px;
+  margin-top: 30px;
+}
+</file>
+
+<file path="client/src/styling/App.css">
+html {
+  height: 100%;
+}
+
+body {
+  top: 0px;
+  min-height: 100%;
+  width: 100vw;
+  background-color: grey;
+}
+
+.main {
+  overflow: auto;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 0px;
+  width: 100vw;
+  min-height: 140vh;
+}
+</file>
+
+<file path="client/src/styling/contact.css">
+#contact-page {
+  background: url("https://images.unsplash.com/photo-1434715961933-4cbf3d79230f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80");
+  background-repeat: no-repeat;
+  height: 140vh;
+  width: 100vw;
+}
+
+#contact {
+  position: absolute;
+  top: 80px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.name,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: rgb(0, 92, 122);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #000b70;
+}
+</file>
+
+<file path="client/src/styling/featured.css">
+.img {
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+}
+
+#card-container {
+  display: flex;
+  max-height: 50vh;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  border: solid black;
+  background-color: white;
+}
+
+.featured-card {
+  min-width: 300px;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+#gallery-head {
+  background: black;
+  margin-top: -5px;
+}
+</file>
+
+<file path="client/src/styling/footer.css">
+.footer {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100vw;
+  border-top: solid black;
+  z-index: 3;
+  margin-top: 50px;
+}
+
+#sct1 {
+  width: 33%;
+  background-color: whitesmoke;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#sct1-txt {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+#sct2 {
+  width: 33%;
+  background-color: whitesmoke;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+
+#sct3 {
+  width: 33%;
+  background-color: whitesmoke;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#newsletter {
+  display: flex;
+  align-items: center;
+}
+
+#input1 {
+  font-size: 10px;
+  height: 30%;
+  width: 60%;
+  margin-left: auto;
+  margin-bottom: 9px;
+}
+
+#button1 {
+  font-size: 8px;
+  height: 20px;
+  width: 40px;
+  margin-right: auto;
+  margin-bottom: 9px;
+}
+
+p {
+  font-size: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#footerlist2 {
+  margin-top: 0px;
+  margin-right: 7px;
+  text-align: right;
+  list-style-type: none;
+}
+
+#footerlist1 {
+  font-size: 10px;
+  margin-top: 0px;
+  text-align: left;
+  list-style-type: none;
+}
+</file>
+
+<file path="client/src/styling/hero.css">
+#hero {
+  width: 100%;
+  height: 50vh; /* changed the height of the hero */
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero-promo {
+  font-size: 3em;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #6d87a2; /* added background color */
+  border: 2px solid #000000;
+  width: 90%;
+}
+
+#hero-text {
+  font-size: 1.2em;
+  color: #555;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+</file>
+
+<file path="client/src/styling/home.css">
+#home {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 90px;
+  width: 100vw;
+  padding-bottom: 80px;
+}
+</file>
+
+<file path="client/src/styling/index.css">
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+</file>
+
+<file path="client/src/styling/nav.css">
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100vw;
+  background: #ababab;
+  z-index: 999;
+}
+
+#links {
+  display: flex;
+  height: 40px;
+  background-color: rgb(0, 92, 122);
+  border: solid;
+  align-items: center;
+  justify-content: center;
+}
+
+.navlink {
+  font-size: 13px;
+  margin: auto;
+  vertical-align: middle;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.icons {
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+}
+
+
+#logo{
+  height: 60px;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: center;
+}
+
+.search-btn {
+  height: 40px;
+  width: 50px;
+  margin-left: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: 10px;
+}
+
+.search-box {
+  
+  width: 60%;
+  height: 20%;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 3px solid #d1d1d1;
+  margin-left: 10px;
+  margin-top:10px;
+}
+
+#search-bar, #search-box {
+  align-self: center;
+}
+
+
+#cart-btn {
+  position: relative;
+  bottom: 0;
+  background: none;
+  border: none;
+  min-width: 50px;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+</file>
+
+<file path="client/src/styling/shopping.css">
+#shopping {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  text-align: center;
+  position: absolute;
+  top: 60px;
+  padding-bottom: 80px;
+  margin-top: 50px;
+  width: 100vw;
+  margin-left: 20px;
+  grid-gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+ 
+}
+
+
+.card {
+  width: 100%;
+  min-width: 150px;
+  max-width: 200px;
+  height:250px;
+  background-color: rgb(144, 146, 158);
+  border: solid black;
+  padding:10px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#product img {
+  width: 100%;
+  max-width: 150px;
+}
+
+#product h2,
+#product h3 {
+  text-align: center;
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  font-size:14px;
+  line-height:1.5;
+  overflow: hidden;
+}
+
+
+
+
+img {
+  max-width: 100%;
+}
+
+#shopping-cart {
+  margin-top: 10px;
+}
+
+#products-btn {
+  top: 10px;
+  width: 100px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+#checkout-btn {
+  width: 100px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#shopping-head {
+  z-index: 1000;
+  display: flex;
+  position: fixed;
+  top: 100px;
+  height: 40px;
+  width: 100vw;
+}
+
+#goToCart {
+  text-align: center;
+  margin-left: auto;
+  height: 30px;
+  width: 100px;
+  margin-top: 3px;
+}
+
+#cart-title {
+  margin-top: 50px;
+}
+
+#cart-container {
+  position: fixed;
+  right: 50%;
+  transform: translate(50%, 0);
+  text-align: center;
+  padding-bottom: 80px;
+  margin-top: 120px;
+  width: 70vw;
+  border: solid red;
+  background-color: white;
+  max-height: 50vh;
+  overflow-y: scroll;
+  z-index: 1000;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.card-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+</file>
+
+<file path="client/src/styling/styles.css">
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+</file>
+
+<file path="client/src/App.js">
+import React from "react";
+import "./styling/App.css";
+import "./styling/nav.css";
+import "./styling/footer.css";
+import "./styling/home.css";
+import "./styling/shopping.css";
+import "./styling/about.css";
+import "./styling/account.css";
+import "./styling/contact.css";
+import "./styling/hero.css";
+import "./styling/featured.css";
+
+
+import About from "./pages/about";
+import Account from "./pages/account";
+import Cart from "./pages/cart";
+import Contact from "./pages/contact";
+import Shopping from "./pages/shopping";
+import Home from "./pages/home";
+
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { NavBar } from "./components/index.js";
+import { Footer } from "./components/index.js";
+
+function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <div className="main">
+          <NavBar />
+          <Footer />
+        </div>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/shopping" element={<Shopping />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
+</file>
+
+<file path="client/src/App.test.js">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+</file>
+
+<file path="client/src/index.js">
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styling/index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+
+ReactDOM.render(<App />, document.getElementById("root"));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
+</file>
+
+<file path="client/src/logo.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">
+  <g fill="#61DAFB">
+    <path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z" />
+    <circle cx="420.9" cy="296.5" r="45.7" />
+    <path d="M520.5 78.1z" />
+  </g>
+</svg>
+</file>
+
+<file path="client/src/serviceWorker.js">
+// This optional code is used to register a service worker.
+// register() is not called by default.
+
+// This lets the app load faster on subsequent visits in production, and gives
+// it offline capabilities. However, it also means that developers (and users)
+// will only see deployed updates on subsequent visits to a page, after all the
+// existing tabs open on the page have been closed, since previously cached
+// resources are updated in the background.
+
+// To learn more about the benefits of this model and instructions on how to
+// opt-in, read http://bit.ly/CRA-PWA.
+
+const isLocalhost = Boolean(
+  window.location.hostname === 'localhost' ||
+    // [::1] is the IPv6 localhost address.
+    window.location.hostname === '[::1]' ||
+    // 127.0.0.1/8 is considered localhost for IPv4.
+    window.location.hostname.match(
+      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+    )
+);
+
+export function register(config) {
+  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+    // The URL constructor is available in all browsers that support SW.
+    const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
+    if (publicUrl.origin !== window.location.origin) {
+      // Our service worker won't work if PUBLIC_URL is on a different origin
+      // from what our page is served on. This might happen if a CDN is used to
+      // serve assets; see https://github.com/facebook/create-react-app/issues/2374
+      return;
+    }
+
+    window.addEventListener('load', () => {
+      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+
+      if (isLocalhost) {
+        // This is running on localhost. Let's check if a service worker still exists or not.
+        checkValidServiceWorker(swUrl, config);
+
+        // Add some additional logging to localhost, pointing developers to the
+        // service worker/PWA documentation.
+        navigator.serviceWorker.ready.then(() => {
+          console.log(
+            'This web app is being served cache-first by a service ' +
+              'worker. To learn more, visit http://bit.ly/CRA-PWA'
+          );
+        });
+      } else {
+        // Is not localhost. Just register service worker
+        registerValidSW(swUrl, config);
+      }
+    });
+  }
+}
+
+function registerValidSW(swUrl, config) {
+  navigator.serviceWorker
+    .register(swUrl)
+    .then(registration => {
+      registration.onupdatefound = () => {
+        const installingWorker = registration.installing;
+        installingWorker.onstatechange = () => {
+          if (installingWorker.state === 'installed') {
+            if (navigator.serviceWorker.controller) {
+              // At this point, the updated precached content has been fetched,
+              // but the previous service worker will still serve the older
+              // content until all client tabs are closed.
+              console.log(
+                'New content is available and will be used when all ' +
+                  'tabs for this page are closed. See http://bit.ly/CRA-PWA.'
+              );
+
+              // Execute callback
+              if (config && config.onUpdate) {
+                config.onUpdate(registration);
+              }
+            } else {
+              // At this point, everything has been precached.
+              // It's the perfect time to display a
+              // "Content is cached for offline use." message.
+              console.log('Content is cached for offline use.');
+
+              // Execute callback
+              if (config && config.onSuccess) {
+                config.onSuccess(registration);
+              }
+            }
+          }
+        };
+      };
+    })
+    .catch(error => {
+      console.error('Error during service worker registration:', error);
+    });
+}
+
+function checkValidServiceWorker(swUrl, config) {
+  // Check if the service worker can be found. If it can't reload the page.
+  fetch(swUrl)
+    .then(response => {
+      // Ensure service worker exists, and that we really are getting a JS file.
+      if (
+        response.status === 404 ||
+        response.headers.get('content-type').indexOf('javascript') === -1
+      ) {
+        // No service worker found. Probably a different app. Reload the page.
+        navigator.serviceWorker.ready.then(registration => {
+          registration.unregister().then(() => {
+            window.location.reload();
+          });
+        });
+      } else {
+        // Service worker found. Proceed as normal.
+        registerValidSW(swUrl, config);
+      }
+    })
+    .catch(() => {
+      console.log(
+        'No internet connection found. App is running in offline mode.'
+      );
+    });
+}
+
+export function unregister() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(registration => {
+      registration.unregister();
+    });
+  }
+}
+</file>
+
+<file path="client/.env.example">
+REACT_APP_API_BASE_URL=http://localhost:3001
+</file>
+
+<file path="client/package.json">
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.3.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.2",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+</file>
+
+<file path="docs/CRA_REFERENCE.md">
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</file>
+
+<file path="server/.gitignore">
+node_modules/
+.env
+</file>
+
+<file path="server/index.js">
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// TODO: Configure mysql.createPool with your schema credentials from Lesson 9.
+const db = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
+
+app.post('/submit-form', (req, res) => {
+  // TODO: Finish the Lesson 9 /submit-form implementation using your database pool.
+  res.status(501).json({ message: 'Not implemented yet' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+</file>
+
+<file path="server/package.json">
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Express server for lesson form submissions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
+</file>
+
+<file path="client/src/components/contactForm.jsx">
+import React, { useState } from "react";
+import axios from "axios";
+
+const ContactForm = () => {
+  // Lesson 9 TODO: Step 1 – Collect the form data in component state so it can be sent to your server.
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    subject: "",
+  });
+
+  // Lesson 9 TODO: Step 2 – Send this data to your Express endpoint once it's implemented.
+  // Lesson 9 TODO: Step 3 – Handle both success and failure responses from the server.
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      // Reminder: set REACT_APP_API_BASE_URL in your .env once your Express server is up.
+      .post(`${process.env.REACT_APP_API_BASE_URL}/submit-form`, formData)
+      .then((response) => {
+        console.log(response.data);
+        // TODO: replace this console.log with user feedback once the POST route is working.
+      })
+      .catch((error) => {
+        console.log(error);
+        // TODO: surface an error message to the user once the POST route is working.
+      });
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  return (
+    <div id="contact">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="fname">First Name</label>
+        <input
+          type="text"
+          className="name"
+          id="fname"
+          name="firstname"
+          placeholder="Your name.."
+          value={formData.firstname}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="lname">Last Name</label>
+        <input
+          type="text"
+          className="name"
+          id="lname"
+          name="lastname"
+          placeholder="Your last name.."
+          value={formData.lastname}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="email">Email Address</label>
+        <textarea
+          id="email"
+          name="email"
+          placeholder="Please leave an email address where we can reach you"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="subject">Subject</label>
+        <textarea
+          id="subject"
+          name="subject"
+          placeholder="Write something.."
+          value={formData.subject}
+          onChange={handleInputChange}
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default ContactForm;
+</file>
+
+<file path="client/src/components/nav.jsx">
+import React from "react";
+import acct from "../images/acct.png";
+import logo from "../images/logo.png";
+import cartlogo from "../images/cartlogo.png";
+import { Link } from "react-router-dom";
+
+const NavBar = (props) => {
+  return (
+    <>
+      <div className="nav">
+        <div className="nav-items">
+          <img className="icons" id= 'logo'src={logo} alt=""></img>
+          <input
+            type="text"
+            className="search-box"
+            placeholder="search"
+          ></input>
+          <button className="search-btn">search</button>
+
+          <img className="icons" src={acct} alt=""></img>
+
+          <Link to="/cart" id="cart-btn">
+            Cart (
+            {/* TODO: Replace this fallback count with real cart state in Lesson 9. */}
+            {props.length ?? 0})
+            <img src={cartlogo} alt=""></img>
+          </Link>
+        </div>
+        <div id="links">
+          <Link className="navlink" to="/">
+            Home
+          </Link>
+          <Link className="navlink" to="/shopping">
+            Shopping
+          </Link>
+          <Link className="navlink" to="/about">
+            About Us
+          </Link>
+          <Link className="navlink" to="/contact">
+            Contact
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default NavBar;
+</file>
+
+<file path="client/src/pages/contact.js">
+import React from "react";
+import ContactForm from "../components/contactForm"
+
+const Contact = () => {
+  return (
+    <div id="contact-page">
+      <ContactForm />
+      {/* TODO: Wire this form to the Lesson 9 backend once it is running. */}
+    </div>
+  );
+};
+
+export default Contact;
+</file>
+
+<file path="client/.gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+</file>
+
+<file path="server/.env.example">
+# Environment configuration for the Express server
+# Copy this file to .env and provide your database connection details.
+DB_HOST=localhost
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=your_db_name
+PORT=3001
+</file>
+
+<file path="README.md">
+# Full-Stack Lesson 9 Starter Guide
+
+Welcome to the template repository for Lesson 9. This guide replaces the default Create React App boilerplate and highlights exactly where to work when continuing the lesson.
+
+## Folder Layout
+- **`client/`** – React frontend that renders the contact form and interacts with the API.
+- **`server/`** – Node/Express backend that exposes routes such as `POST /submit-form` and communicates with the database.
+- **`docs/CRA_REFERENCE.md`** – Archived Create React App reference documentation from the original scaffold.
+
+> If you are missing the `server/` folder locally, create it with the lesson starter code or pull the latest changes from your instructor's branch.
+
+## Opening in GitHub Codespaces
+1. Visit the repository on GitHub and click **Code** ▸ **Codespaces** ▸ **Create codespace on main**.
+2. Codespaces provisions the development container with Node.js, npm, and MySQL client tools pre-installed for you.
+3. After the workspace boots, open two terminals (one for `client/`, one for `server/`) so you can run both apps concurrently.
+
+## Local Setup (outside Codespaces)
+### Prerequisites
+- **Node.js 18 LTS or newer** – install from [nodejs.org](https://nodejs.org/en/download) or use a version manager such as `nvm`.
+- **npm** – bundled with Node.js (verify with `npm --version`).
+- **MySQL Server & MySQL Workbench** – download from [dev.mysql.com/downloads/workbench](https://dev.mysql.com/downloads/workbench/) to design the schema and inspect data.
+
+### Install Dependencies and Run Apps
+Run the following commands in the indicated folders:
+
+#### `client/`
+```bash
+cd client
+npm install
+npm start
+```
+- `npm start` launches the React development server on port 3000.
+- Use `npm test` or `npm run build` as needed for lesson extensions.
+
+#### `server/`
+```bash
+cd server
+npm install
+npm run dev
+```
+- `npm run dev` should start your Express server with hot reloading (configure with `nodemon` or a similar tool).
+- Use `npm start` for the production build once the API is complete.
+
+## Environment Variables
+Create a `.env` file in the `server/` directory to store secrets such as:
+```env
+DATABASE_URL=mysql://user:password@localhost:3306/lesson9
+PORT=4000
+```
+- Never commit `.env` files; ensure they are listed in `.gitignore`.
+- If the React app needs public environment variables, add them to `client/.env` with the `REACT_APP_` prefix (for example, `REACT_APP_API_BASE_URL=http://localhost:4000`).
+
+## Lesson 9 TODOs
+Track your progress with the checklist that mirrors the lesson agenda:
+- [ ] Set up the MySQL database schema (tables, relations, seed data) in Workbench or migration files.
+- [ ] Configure environment variables and database connection utilities in the `server/`.
+- [ ] Implement the `POST /submit-form` route to validate requests and persist submissions.
+- [ ] Connect the React contact form to call the API and handle loading/success/error states.
+- [ ] Display submitted data or confirmation messages in the UI.
+- [ ] Add any stretch goals from the lesson (e.g., input validation helpers, server-side logging).
+
+## Additional Resources
+- Refer to [`docs/CRA_REFERENCE.md`](docs/CRA_REFERENCE.md) if you need the original Create React App documentation.
+- Check your LMS or instructor notes for lesson-specific database credentials or deployment targets.
+</file>
+
+<file path="client/README.md">
+# Frontend Client
+
+The main project documentation now lives in the [root-level README](../README.md). If you need the original Create React App reference material, it has been preserved in [`docs/CRA_REFERENCE.md`](../docs/CRA_REFERENCE.md).
+
+## Lesson 9: Wiring the Contact Form to Express
+
+Lesson 9 focuses on taking the front-end contact form and connecting it to the Express API that students build in the back-end lessons. The UI now contains TODO markers that walk through the work you will complete in this lesson.
+
+### Step-by-step guide
+
+1. **Collect the form data (Lesson 9 TODO – Step 1)**
+   - Open `client/src/components/contactForm.jsx` and find the `Lesson 9 TODO` comment above the `useState` hook.
+   - Review how the component stores `firstname`, `lastname`, `email`, and `subject` in state.
+   - If you add additional form fields, remember to extend both the state shape and the JSX inputs so the data stays in sync.
+
+2. **Prepare the Express endpoint (Lesson 9 TODO – Step 2)**
+   - Stand up your Express server following the Lesson 9 instructions from the back-end curriculum.
+   - Create a POST route (e.g., `/submit-form`) that accepts the payload you are collecting in the React component.
+   - In the React app, create a `.env` file in the `client` directory and set `REACT_APP_API_BASE_URL` to the origin of your Express server (for example `http://localhost:3001`). Restart the dev server after changing environment variables.
+   - The Axios `.post` call in `handleSubmit` uses this environment variable. Once your server route is ready, remove or adjust the TODO comment to reflect your implementation.
+
+3. **Handle success and failure (Lesson 9 TODO – Step 3)**
+   - Inside `handleSubmit`, notice the TODO reminders for success and error handling next to the `console.log` statements.
+   - Replace these temporary logs with UI feedback, such as setting component state that displays a confirmation message or an error banner to the user.
+   - Consider clearing the form on success so users can submit another message without refreshing the page.
+
+### Testing your connection
+
+- Use a REST client (such as Insomnia or Postman) or browser DevTools to monitor the network request when submitting the form.
+- Verify the Express server receives the payload that matches your expected schema.
+- Confirm the client handles both 2xx responses and error responses from the server.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.  
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.  
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.  
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.  
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.  
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</file>
+
+</files>
