@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../components/nav";
 import productImg from "../images/productImg.png";
+import axios from "axios";
 
 const PAGE_PRODUCTS = "products";
 const PAGE_CART = "cart";
@@ -9,75 +10,20 @@ const Shopping = () => {
   const [cartList, setCartList] = useState([]);
   const [page, setPage] = useState(PAGE_PRODUCTS);
 
-  const [products] = useState([
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-    {
-      image: productImg,
-      name: "Product Title",
-      description: "A description of the product",
-      price: "Price"
-    },
-  ]);
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+   (async() => {
+      try {
+        const productData = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/ecommerce/products`)
+        console.log(productData)
+        setProducts(productData.data.rows)
+      } catch (error) {
+        return []
+      }
+      
+    })()
+  }, [])
   const addToCart = (product) => {
     setCartList([...cartList, product]);
   };
@@ -85,7 +31,7 @@ const Shopping = () => {
   const navigateTo = (nextPage) => {
     setPage(nextPage);
   };
-
+  
   const renderProducts = () => (
     <>
       <header id="shopping-head">

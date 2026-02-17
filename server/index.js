@@ -29,7 +29,7 @@ app.post("/submit-form", (req, res) => {
   }
 
   const sql = `
-    INSERT INTO contact_forms (First_name, Last_name, Email, message)
+    INSERT INTO contacts (First_Name, Last_Name, Email, Message)
     VALUES (?, ?, ?, ?)
   `;
 
@@ -48,14 +48,14 @@ app.post("/submit-form", (req, res) => {
 app.get('/health', (req, res) => res.json({ ok: true }));
 
 app.get("/api/ecommerce/products", (req, res) => {
-  const sql = "SELECT id, name, description, imageURL, price FROM products"
+  const sql = "SELECT id, name, description, imageURL, price FROM product"
   db.query(sql, (err, result) =>{
     if (err){
-      console.error("Error")
+      console.error(err)
       res.status(500).json({message: "Error"})
     } 
     else{
-      res.status(200).json(result.json())
+      res.status(200).json({rows: result})
     }
   })
 })
