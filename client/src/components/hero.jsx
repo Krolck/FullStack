@@ -5,7 +5,7 @@ const Hero = () => {
     <>
       <div id="hero">
         <h3 id="hero-promo"> Leo's Eccomerce Website! </h3>
-        <p id="hero-text">THIS IS THE BEST ECCOMERCE WEBSITE EVER!</p>
+        <p id="hero-text">This is the best eccomerce website ever!</p>
       </div>
     </>
   );

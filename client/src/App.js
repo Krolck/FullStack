@@ -20,17 +20,20 @@ import Home from "./pages/home";
 
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import {useState} from 'react'
 import { NavBar } from "./components/index.js";
 import { Footer } from "./components/index.js";
 
+
 function App() {
+
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <BrowserRouter>
         <div className="main">
-          <NavBar />
-          <Footer />
+          <NavBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          
         </div>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -40,7 +43,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/shopping" element={<Shopping />} />
+          <Route path="/shopping" element={<Shopping searchTerm={searchTerm} />} />
         </Routes>
       </BrowserRouter>
     </>

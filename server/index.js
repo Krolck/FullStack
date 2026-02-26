@@ -29,7 +29,7 @@ app.post("/submit-form", (req, res) => {
   }
 
   const sql = `
-    INSERT INTO contacts (First_Name, Last_Name, Email, Message)
+    INSERT INTO contacts (first_name, last_name, email, message)
     VALUES (?, ?, ?, ?)
   `;
 
@@ -48,8 +48,9 @@ app.post("/submit-form", (req, res) => {
 app.get('/health', (req, res) => res.json({ ok: true }));
 
 app.get("/api/ecommerce/products", (req, res) => {
-  const sql = "SELECT id, name, description, imageURL, price FROM product"
-  db.query(sql, (err, result) =>{
+  const searchTerm = req.query.search || ''
+  const sql = "SELECT id, name, description, image_url, price FROM products WHERE name LIKE ?"
+  db.query(sql, [`%${searchTerm}%`], (err, result) =>{
     if (err){
       console.error(err)
       res.status(500).json({message: "Error"})
@@ -60,6 +61,41 @@ app.get("/api/ecommerce/products", (req, res) => {
   })
 })
 
+app.post("/api/ecommerce/cart", (req, res) => {
+  const sql = `
+  INSERT INTO cart (name, price, description, image_url)
+  VALUES (?, ?, ?, ?)
+`;
+
+
+  const {name, price, description, image_url} = req.body
+  db.execute(sql, [name, price, description, image_url], (err, results) => {
+    if (err) {
+      console.error("DB insert error:", err);
+      return res.status(500).json({ message: "Database error." });
+    }
+    return res
+      .status(201)
+      .json({ message: "Cart data inserted!", id: results.insertId });
+  });
+  
+})
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.get("/api/ecommerce/cart", (req, res) => {
+  const sql = "SELECT id, name, price, description, image_url, price FROM cart"
+  db.query(sql, (err, result) =>{
+    if (err){
+      console.error(err)
+      res.status(500).json({message: "Error"})
+    } 
+    else{
+      res.status(200).json({rows: result})
+    }
+  })
+})

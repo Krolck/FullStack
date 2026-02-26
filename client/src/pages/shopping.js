@@ -6,26 +6,40 @@ import axios from "axios";
 const PAGE_PRODUCTS = "products";
 const PAGE_CART = "cart";
 
-const Shopping = () => {
+const Shopping = (props) => {
+  const searchTerm = props.searchTerm ?? "";
   const [cartList, setCartList] = useState([]);
   const [page, setPage] = useState(PAGE_PRODUCTS);
-
   const [products, setProducts] = useState([]);
-
+  const [filteredProducts, setFilteredProducts] = useState([]);
   useEffect(() => {
-   (async() => {
-      try {
-        const productData = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/ecommerce/products`)
-        console.log(productData)
-        setProducts(productData.data.rows)
-      } catch (error) {
-        return []
-      }
-      
-    })()
+    (async() => {
+        try {
+          const productData = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/ecommerce/products`,searchTerm)
+          console.log(productData)
+          setProducts(productData.data.rows)
+          
+        } catch (error) {
+          return []
+        }
+        
+      })();
   }, [])
-  const addToCart = (product) => {
-    setCartList([...cartList, product]);
+  useEffect(() => {
+    console.log("Update Filter " + searchTerm)
+    setFilteredProducts(
+          products.filter((product) =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+      )
+  }, [products, searchTerm])
+  const addToCart = async(product) => {
+
+      setCartList([...cartList, product]);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/ecommerce/cart`, product)
+      console.log("Cart Response: ", response)
+      navigateTo("/cart")
+    
   };
 
   const navigateTo = (nextPage) => {
@@ -40,10 +54,10 @@ const Shopping = () => {
         </button>
       </header>
       <div id="shopping">
-        {products.map((product, idx) => (
+        {filteredProducts.map((product, idx) => (
           <div className="card" key={idx}>
             <div id="product">
-              <img src={product.image} alt="" />
+              <img src={product.image_url} alt="" />
               <h2> {product.name} </h2>
               <h3> {product.description} </h3>
               <h3> {product.price} </h3>
@@ -67,7 +81,7 @@ const Shopping = () => {
         {cartList.map((product, idx) => (
           <div className="card card-container" key={idx}>
             <div id="product">
-              <img src={product.image} alt="" />
+              <img src={product.image_url} alt="" />
               <h2> {product.name} </h2>
               <h3> {product.description} </h3>
               <h3> {product.price} </h3>
