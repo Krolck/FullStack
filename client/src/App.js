@@ -26,13 +26,13 @@ import { Footer } from "./components/index.js";
 
 
 function App() {
-
+  const [cartList, setCartList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <BrowserRouter>
         <div className="main">
-          <NavBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <NavBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} length = {cartList.length}  />
           
         </div>
         <Routes>
@@ -43,7 +43,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/shopping" element={<Shopping searchTerm={searchTerm} />} />
+          <Route path="/shopping" element={<Shopping searchTerm={searchTerm} cartList = {cartList} setCartList = {setCartList}  />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/nav";
 import productImg from "../images/productImg.png";
+import Product from "../components/product"
 import axios from "axios";
 
 const PAGE_PRODUCTS = "products";
@@ -8,10 +9,12 @@ const PAGE_CART = "cart";
 
 const Shopping = (props) => {
   const searchTerm = props.searchTerm ?? "";
-  const [cartList, setCartList] = useState([]);
+  const cartList= props.cartList
+  const setCartList = props.setCartList
   const [page, setPage] = useState(PAGE_PRODUCTS);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [cartText, setCartText] = useState("Open Cart")
   useEffect(() => {
     (async() => {
         try {
@@ -49,8 +52,18 @@ const Shopping = (props) => {
   const renderProducts = () => (
     <>
       <header id="shopping-head">
-        <button onClick={() => navigateTo(PAGE_CART)} id="goToCart">
-          Go to Cart ({cartList.length})
+        <button onClick={() => {
+          if (cartText == "Open Cart"){
+            navigateTo(PAGE_CART)
+            setCartText("Close Cart")
+          }
+          else {
+            navigateTo(PAGE_PRODUCTS)
+            setCartText("Open Cart")
+          }
+          
+  }} id="goToCart">
+          {cartText} ({cartList.length})
         </button>
       </header>
       <div id="shopping">
@@ -73,19 +86,14 @@ const Shopping = (props) => {
     <>
       <div id="cart-container">
         <button onClick={() => navigateTo(PAGE_PRODUCTS)} id="products-btn">
-          Back to Products
+          Close Cart
         </button>
 
         <h1 id="cart-title"> Cart </h1>
 
         {cartList.map((product, idx) => (
           <div className="card card-container" key={idx}>
-            <div id="product">
-              <img src={product.image_url} alt="" />
-              <h2> {product.name} </h2>
-              <h3> {product.description} </h3>
-              <h3> {product.price} </h3>
-            </div>
+            <Product image_url = {product.image_url} name = {product.name} description = {product.description} price = {product.price}/>
           </div>
         ))}
         <button id="checkout-btn">Checkout</button>
