@@ -69,13 +69,7 @@ const Shopping = (props) => {
       <div id="shopping">
         {filteredProducts.map((product, idx) => (
           <div className="card" key={idx}>
-            <div id="product">
-              <img src={product.image_url} alt="" />
-              <h2> {product.name} </h2>
-              <h3> {product.description} </h3>
-              <h3> {product.price} </h3>
-              <button onClick={() => addToCart(product)}> Add to Cart </button>
-            </div>
+            a
           </div>
         ))}
       </div>

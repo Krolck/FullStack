@@ -28,7 +28,7 @@ const Featured = () => {
               <img src={product.image_url} alt="" />
               <h2> {product.name} </h2>
               <h3> {product.description} </h3>
-              <h3> {product.price} </h3>            </div>
+              <h3> ${product.price} </h3>            </div>
           </div>
         ))}
       </div>

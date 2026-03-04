@@ -11,8 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// ✅ Using mysql2 + dotenv
-// TODO: Configure this pool with your schema credentials from Lesson 9.
+
 const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -20,7 +19,6 @@ const db = mysql.createPool({
   database: process.env.DB_NAME,
 });
 
-// TODO: Implement /submit-form to handle form data and insert into your database
 app.post("/submit-form", (req, res) => {
   const { firstname, lastname, email, subject } = req.body;
 
