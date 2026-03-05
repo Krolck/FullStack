@@ -14,7 +14,7 @@
   margin-right: 20px;
   text-align: center;
   border: solid black;
-  background-color: white;
+  background-color: rgb(83, 177, 180);
   gap: 10px
 }
 
@@ -37,5 +37,6 @@
 
 #gallery-head {
   background: black;
+  color: #8ddbd5;
   margin-top: -5px;
 }

@@ -27,7 +27,7 @@ const Shopping = (props) => {
         }
         
       })();
-  }, [])
+  }, [searchTerm])
   useEffect(() => {
     console.log("Update Filter " + searchTerm)
     setFilteredProducts(
@@ -40,10 +40,23 @@ const Shopping = (props) => {
 
       setCartList([...cartList, product]);
       const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/ecommerce/cart`, product)
+      
       console.log("Cart Response: ", response)
-      navigateTo("/cart")
+  
     
   };
+  const removeFromCart = async(product, idx) => {
+
+    
+
+    console.log(idx)
+    setCartList([...cartList.slice(0, idx),...cartList.slice(idx + 1)]);
+    console.log(cartList)
+    const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/ecommerce/cart`, product)
+    console.log("Cart Response: ", response)
+   
+  
+};
 
   const navigateTo = (nextPage) => {
     setPage(nextPage);
@@ -53,7 +66,7 @@ const Shopping = (props) => {
     <>
       <header id="shopping-head">
         <button onClick={() => {
-          if (cartText == "Open Cart"){
+          if (cartText === "Open Cart"){
             navigateTo(PAGE_CART)
             setCartText("Close Cart")
           }
@@ -69,7 +82,7 @@ const Shopping = (props) => {
       <div id="shopping">
         {filteredProducts.map((product, idx) => (
           <div className="card" key={idx}>
-            a
+            <Product image_url = {product.image_url} name = {product.name} description = {product.description} price = {product.price} function = {() => addToCart(product)} buttonText = "Add To Cart"/>
           </div>
         ))}
       </div>
@@ -79,15 +92,22 @@ const Shopping = (props) => {
   const renderCart = () => (
     <>
       <div id="cart-container">
-        <button onClick={() => navigateTo(PAGE_PRODUCTS)} id="products-btn">
-          Close Cart
+        <button onClick={() => {
+          if (cartText === "Open Cart"){
+            navigateTo(PAGE_CART)
+            setCartText("Close Cart")
+          }
+          else {
+            navigateTo(PAGE_PRODUCTS)
+            setCartText("Open Cart")
+          }}} id="products-btn">Close Cart
         </button>
 
         <h1 id="cart-title"> Cart </h1>
 
         {cartList.map((product, idx) => (
           <div className="card card-container" key={idx}>
-            <Product image_url = {product.image_url} name = {product.name} description = {product.description} price = {product.price}/>
+            <Product image_url = {product.image_url} name = {product.name} description = {product.description} price = {product.price} function = {() => removeFromCart(product, idx)} buttonText = "Remove From Cart" />
           </div>
         ))}
         <button id="checkout-btn">Checkout</button>
